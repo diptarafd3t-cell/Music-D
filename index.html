@@ -1,0 +1,530 @@
+Create a readme file for this
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music D - Royalty Free Music Downloads</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body and Reset */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .navbar-left, .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 22px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            color: #333; /* Default color for logo */
+        }
+
+        .logo .fa-pixabay {
+            color: #00c7a5; /* Pixabay green */
+            margin-right: 5px;
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-right: 15px;
+        }
+
+        .main-nav a {
+            padding: 8px 10px;
+            border-radius: 4px;
+            color: #555;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            background-color: #eee;
+            color: #000;
+        }
+
+        .navbar-right .nav-link {
+            margin-left: 15px;
+            color: #555;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right .nav-link i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        .upload-btn {
+            background-color: #00c7a5;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .upload-btn:hover {
+            background-color: #00a88a;
+        }
+
+        .upload-btn i {
+            margin-right: 8px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #909090; /* Dark grey similar to screenshot */
+            padding: 40px 20px 80px; /* Increased bottom padding to accommodate filters */
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .search-bar-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #6a6a6a; /* Slightly lighter grey for the container */
+            border-radius: 6px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative; /* For featured photo text positioning */
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 8px 15px;
+        }
+
+        .search-icon {
+            color: #888;
+            margin-right: 10px;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+        }
+
+        .search-filters {
+            display: flex;
+            flex-wrap: nowrap; /* Keep tags in one line */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            padding: 10px 0;
+            margin-top: 10px;
+            white-space: nowrap; /* Ensure tags don't wrap */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+        }
+
+        .search-filters::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+
+        .filter-tag {
+            background-color: #5a5a5a; /* Darker grey for tags */
+            color: #eee;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            flex-shrink: 0; /* Prevent tags from shrinking */
+        }
+
+        .filter-tag:hover {
+            background-color: #4a4a4a;
+            color: #fff;
+        }
+
+        .arrow-btn {
+            background-color: #5a5a5a;
+            color: #eee;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-left: auto; /* Pushes the button to the right if there's space */
+            flex-shrink: 0; /* Prevent button from shrinking */
+        }
+
+        .featured-photo {
+            font-size: 12px;
+            color: #ddd;
+            margin-top: 15px;
+            text-align: right;
+            margin-right: 15px;
+        }
+
+        /* Content Section (Music List) */
+        .content-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .music-list {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        .music-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .music-item:last-child {
+            border-bottom: none;
+        }
+
+        .music-item:hover {
+            background-color: #f8f8f8;
+        }
+
+        .music-item .music-link-wrapper {
+            display: flex;
+            align-items: center;
+            flex-grow: 1; /* Allow the link wrapper to take up available space */
+        }
+
+        .thumbnail {
+            width: 60px; /* Size of your thumbnail */
+            height: 60px;
+            border-radius: 4px;
+            background-color: #ccc; /* Placeholder background */
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .play-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #00c7a5; /* Pixabay green */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-right: 15px;
+            /* Adjustments for play icon when thumbnail is present */
+            position: static; /* Reset position for standard flow */
+            opacity: 1; /* Always visible in this layout */
+            margin-left: -45px; /* Pull play icon over thumbnail slightly */
+            z-index: 2; /* Ensure it's above thumbnail */
+            border: 2px solid white; /* Add a white border for better visibility on thumbnail */
+        }
+
+        .track-details {
+            flex-grow: 1;
+        }
+
+        .track-title {
+            font-weight: 500;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .track-artist {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .track-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 16px;
+            color: #777;
+            flex-shrink: 0;
+        }
+
+        .track-actions i {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .track-actions i:hover {
+            color: #000;
+        }
+
+        .see-more-editor-choice {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            background-color: #00c7a5;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .see-more-editor-choice:hover {
+            background-color: #00a88a;
+        }
+
+        /* Curated Playlists Section */
+        .curated-playlists-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .curated-playlists-section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .curated-playlists-section h2 .see-all {
+            font-size: 15px;
+            color: #00c7a5;
+            font-weight: 500;
+        }
+
+        .curated-playlists-section h2 .see-all:hover {
+            text-decoration: underline;
+        }
+
+        .playlists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 20px;
+        }
+
+        .playlist-card {
+            background-color: #e0e0e0; /* Placeholder background */
+            height: 180px; /* Placeholder height */
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #888;
+        }
+
+        .px-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-left">
+            <a href="#" class="logo">
+                <i class="fa-brands fa-pixabay"></i> music D
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Explore</a></li>
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="#">Illustrations</a></li>
+                    <li><a href="#">Vectors</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#" class="active">Music</a></li>
+                    <li><a href="#">Sound Effects</a></li>
+                    <li><a href="#">3D Models</a></li>
+                    <li><a href="#">GIFs</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="navbar-right">
+            <a href="#" class="nav-link">Explore <i class="fas fa-chevron-down"></i></a>
+            <a href="#" class="nav-link">Log in</a>
+            <a href="#" class="nav-link">Join</a>
+            <button class="upload-btn"><i class="fas fa-upload"></i> Upload</button>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <h1>Royalty free music downloads</h1>
+        <div class="search-bar-container">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search for music" class="search-input">
+            </div>
+            <div class="search-filters">
+                <span class="filter-tag">background music</span>
+                <span class="filter-tag">birthday</span>
+                <span class="filter-tag">no copyright music</span>
+                <span class="filter-tag">motivation</span>
+                <span class="filter-tag">ramadan</span>
+                <span class="filter-tag">corporate</span>
+                <span class="filter-tag">cinematic</span>
+                <span class="filter-tag">phonk</span>
+                <span class="filter-tag">horror</span>
+                <button class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="featured-photo">Featured Photo by @diptarafder</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>WELLCOME TO OUR OWN YOUTUBE X PAGE COMMUNITY</h2>
+
+        <div class="music-list">
+            <!-- Music Track Item Example 1 with Video -->
+            <div class="music-item">
+                <a href="https://youtu.be/T0j32LXmMvE?si=yJTYVDUSkkeVypSC" target="_blank" class="music-link-wrapper">
+                    <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/T0j32LXmMvE/hqdefault.jpg');"></div>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    <div class="track-details">
+                        <div class="track-title">MASTERPIECE || D-ROX || DIP || Hindi_Rap-X-Reality</div>
+                        <div class="track-artist">D-Rox/Music-D/Dip</div>
+                    </div>
+                </a>
+                <div class="track-actions">
+                    <i class="fas fa-download"></i>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+            </div>
+            <!-- Music Track Item Example 2 with Video -->
+            <div class="music-item">
+                <a href="https://youtu.be/KF1UFhv3Hv4?si=P7vvOKz98C8KhOKh" target="_blank" class="music-link-wrapper">
+                    <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/KF1UFhv3Hv4/hqdefault.jpg');"></div>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    <div class="track-details">
+                        <div class="track-title">শেষ_নিঃস্যাস || Unknown || Dip</div>
+                        <div class="track-artist">Unknown/Dip/Music-D</div>
+                    </div>
+                </a>
+                <div class="track-actions">
+                    <i class="fas fa-download"></i>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+            </div>
+            <!-- Music Track Item Example 3 with Video -->
+            <div class="music-item">
+                <a href="https://youtu.be/2dd3dEf6mdo?si=NG5vg0ko8h1hRc7F" target="_blank" class="music-link-wrapper">
+                    <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/2dd3dEf6mdo/hqdefault.jpg');"></div>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    <div class="track-details">
+                        <div class="track-title">TERI__SATH || ENY-ME!</div>
+                        <div class="track-artist">Music-D</div>
+                    </div>
+                </a>
+                <div class="track-actions">
+                    <i class="fas fa-download"></i>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+            </div>
+        </div>
+
+        <button class="see-more-editor-choice">See more Editor's Choice</button>
+    </div>
+
+    <div class="curated-playlists-section">
+        <h2>Pixabay curated playlists <a href="#" class="see-all">See all Playlists</a></h2>
+        <div class="playlists-grid">
+            <div class="playlist-card">
+                <span class="px-tag">PX</span>
+                <!-- Placeholder for playlist image/content -->
+            </div>
+            <div class="playlist-card">
+                <span class="px-tag">PX</span>
+                <!-- Placeholder for playlist image/content -->
+            </div>
+            <div class="playlist-card">
+                <span class="px-tag">PX</span>
+                <!-- Placeholder for playlist image/content -->
+            </div>
+        </div>
+    </div>
+
+</body>
+  </html>
